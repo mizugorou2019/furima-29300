@@ -1,24 +1,110 @@
-# README
+## Users テーブル
+| Column      | Type    | Options     |
+| ----------- | ------  | ----------- |
+| name        | string  | null: false |
+| email       | string  | null: false |
+| password    | string  | null: false |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+- has_many :items
+- has_one :profile
+- has_one :credit_card
 
-Things you may want to cover:
 
-* Ruby version
+## Profiles テーブル
+| Column            | Type    | Options     |
+| ----------------- | ------  | ----------- |
+| family_name       | string  | null: false |
+| first_name        | string  | null: false |
+| family_name_kana  | string  | null: false |
+| first_name_kana   | string  | null: false |
+| birth_year        | string  | null: false |
+| birth_month       | string  | null: false |
+| birth_day         | string  | null: false |
 
-* System dependencies
+### Association
+- belongs_to: user
 
-* Configuration
 
-* Database creation
+## Credit_cards テーブル
+| Column        | Type        | Options                        |
+| ------------- | ----------- | ------------------------------ |
+| card_number   | integer     | null: false                    |
+| exp_year      | integer     | null: false                    |
+| exp_month     | integer     | null: false                    |
+| security_code | integer     | null: false                    |
+| user_id       | references  | null: false, foreign_key: true |
 
-* Database initialization
+### Association
+- belongs_to: user
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Items テーブル
+| Column         | Type    | Options     |
+| -------------- | ------  | ----------- |
+| name           | string  | null: false |
+| description    | string  | null: false |
+| price          | integer | null: false |
+### Association
+- belongs to :user
+- has_one :image
+- has_one :category
+- has_one :condition
+- has_one :postage_payer
+- has_one :shipping_origin
+- has_one :preparation_day
 
-* Deployment instructions
 
-* ...
+## Images テーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| url     | string     | null: false,                   |
+| item_id | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+
+
+## Categories テーブル
+| Column   | Type    | Options      |
+| -------- | ------- | ------------ |
+| category | string  | null: false  |
+
+### Association
+has_many :items
+
+
+## Conditions テーブル
+| Column   | Type    | Options      |
+| -------- | ------- | ------------ |
+| category | string  | null: false  |
+
+### Association
+has_many :items
+
+
+## Postage_payer テーブル
+| Column        | Type    | Options      |
+| ------------- | ------- | ------------ |
+| postage_payer | string  | null: false  |
+
+### Association
+has_many :items
+
+
+## Shipping_origins テーブル
+| Column          | Type    | Options      |
+| --------------- | ------- | ------------ |
+| shipping_origin | string  | null: false  |
+
+### Association
+has_many :items
+
+
+## Preparation_days テーブル
+| Column          | Type    | Options      |
+| --------------- | ------- | ------------ |
+| preparation_day | integer | null: false  |
+
+### Association
+has_many :items
