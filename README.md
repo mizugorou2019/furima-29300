@@ -13,44 +13,42 @@
 ### Association
 - has_many :items
 - has_many :purchases
-- has_many :deliveries
 
 
 ## Items テーブル
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-| description     | text       | null: false                    |
-| price           | integer    | null: false                    |
-| category        | integer    | null: false                    |
-| condition       | integer    | null: false                    |
-| postage_payer   | integer    | null: false                    |
-| shipping_origin | integer    | null: false                    |
-| preparation_day | integer    | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
+| Column          | Type    | Options                        |
+| --------------- | ------- | ------------------------------ |
+| name            | string  | null: false                    |
+| description     | text    | null: false                    |
+| price           | integer | null: false                    |
+| category        | integer | null: false                    |
+| condition       | integer | null: false                    |
+| postage_payer   | integer | null: false                    |
+| shipping_origin | integer | null: false                    |
+| preparation_day | integer | null: false                    |
+| user_id         | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs to :user
 - has_one :image
 - has_one :purchase
-- has_one :delivery
 
 
 ## Images テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| url     | string     | null: false,                   |
-| item_id | references | null: false, foreign_key: true |
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| url     | string  | null: false,                   |
+| item_id | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
 
 
 ## Purchases テーブル
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| user_id         | references | null: false, foreign_key: true |
-| item_id         | references | null: false, foreign_key: true |
+| Column          | Type    | Options                        |
+| --------------- | ------- | ------------------------------ |
+| user_id         | integer | null: false, foreign_key: true |
+| item_id         | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -61,16 +59,12 @@
 ## Delivery テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| post_code        | integer    | null: false                    |
-| prefecture       | string     | null: false                    |
+| post_code        | string     | null: false                    |
+| prefecture       | integer    | null: false                    |
 | city             | string     | null: false                    |
-| house_number     | integer    | null: false                    |
-| phone_number     | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
-| item_id          | references | null: false, foreign_key: true |
+| house_number     | string     | null: false                    |
+| phone_number     | string     | null: false                    |
 | purchase_id      | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
 - belongs_to :purchase
