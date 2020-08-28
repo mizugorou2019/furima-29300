@@ -49,10 +49,6 @@
 ## Purchases テーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| card_number     | integer    | null: false                    |
-| exp_year        | integer    | null: false                    |
-| exp_month       | integer    | null: false                    |
-| security_code   | integer    | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
 | item_id         | references | null: false, foreign_key: true |
 
@@ -66,7 +62,10 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | integer    | null: false                    |
-| shipping_address | string     | null: false                    |
+| prefecture       | string     | null: false                    |
+| city             | string     | null: false                    |
+| house_number     | integer    | null: false                    |
+| phone_number     | integer    | null: false                    |
 | user_id          | references | null: false, foreign_key: true |
 | item_id          | references | null: false, foreign_key: true |
 | purchase_id      | references | null: false, foreign_key: true |
