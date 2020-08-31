@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
-  root "items#index"
+  devise_for :users
+  
+  root to: "items#index"
   resources :items, only: :index do
     resources :images, only: :create
   end
-  resources :users, only: [:show, :index]
+  resources :users, only: [:edit, :update, :destroy]
 end
