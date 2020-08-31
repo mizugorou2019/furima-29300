@@ -65,8 +65,8 @@ describe User do
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
       it 'passwordは英数字が混在していないと登録できない' do
-        @user.password = ''
-        @user.password_confirmation = 'ああああああ'
+        @user.password = '111111'
+        @user.password_confirmation = '111111'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password needs alphabet and number")
       end
