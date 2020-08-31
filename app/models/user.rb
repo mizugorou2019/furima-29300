@@ -15,7 +15,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :name, format: { with: /\A[a-z0-9]+\z/i, message: 'is invalid. Input half-width characters.' }
 
-    validates :password, format: { with: /\A[a-zA-Z0-9]+\z/, message: 'needs alphabet and number'}
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze, message: 'needs alphabet and number'}
 
     validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' }
     validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' }
