@@ -30,18 +30,7 @@
 
 ### Association
 - belongs to :user
-- has_one :image
 - has_one :purchase
-
-
-## Images テーブル
-| Column  | Type    | Options                        |
-| ------- | ------- | ------------------------------ |
-| url     | string  | null: false,                   |
-| item_id | integer | null: false, foreign_key: true |
-
-### Association
-- belongs_to :item
 
 
 ## Purchases テーブル
