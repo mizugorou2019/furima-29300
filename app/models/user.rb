@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :birth_day, presence: true
 
   with_options presence: true do
-    validates :name, format: { with: /\A[a-z0-9]+\z/i, message: 'is invalid. Input half-width characters.' }
+    # validates :name, format: { with: /\A[a-z0-9]+\z/i, message: 'is invalid. Input half-width characters.' }
 
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze, message: 'needs alphabet and number'}
 
