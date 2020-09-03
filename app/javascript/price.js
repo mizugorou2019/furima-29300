@@ -1,5 +1,5 @@
 window.addEventListener('load', function(){
-// function fee(){
+  
   let price = document.getElementById("item-price")
   let tax = document.getElementById("add-tax-price")
   let profit = document.getElementById("profit")
