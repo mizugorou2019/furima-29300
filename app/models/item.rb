@@ -8,9 +8,6 @@ class Item < ApplicationRecord
   validates :description, presence: true, length: { maximum: 1000 }
 
   with_options presence: true do
-    # validates :price, format: { with: /\A[0-9]+\z/, message: "is invalid. Input half-width numbers" }
-    # validates :price, format: { with: /[3-9][0-9]{2}|[1-9][0-9]{3,6}/, message:  "is out of range" }
-    # validates :price, length: { within: 300..9999999, message: "is out of range" }
     validates :price, inclusion: { in: 300..9_999_999, message: 'is out of range' }
 
     validates :category, numericality: { other_than: 1, message: "can't be blank" }
