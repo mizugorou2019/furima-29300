@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :purchases
 
   validates :name, presence: true, length: { maximum: 40 }
-  validates :password, presence: true, length: { minimum: 6 } 
+  validates :password, presence: true, length: { minimum: 6 }
 
   validates :birth_day, presence: true
 
@@ -22,6 +22,5 @@ class User < ApplicationRecord
 
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is valid. Input full-width katakana characters.' }
     validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is valid. Input full-width katakana characters.' }
-
   end
 end
