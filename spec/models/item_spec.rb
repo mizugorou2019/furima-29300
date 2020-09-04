@@ -49,27 +49,27 @@ describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
       it 'categoryが空では出品できない' do
-        @item.category = 1
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'conditionが空では出品できない' do
-        @item.condition = 1
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it 'postage_payerが空では出品できない' do
-        @item.postage_payer = 1
+        @item.postage_payer_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage payer can't be blank")
       end
       it 'shipping_originが空では出品できない' do
-        @item.shipping_origin = 0
+        @item.shipping_origin_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping origin can't be blank")
       end
       it 'preparation_dayが空では出品できない' do
-        @item.preparation_day = 1
+        @item.preparation_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Preparation day can't be blank")
       end
