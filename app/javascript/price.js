@@ -1,4 +1,4 @@
-window.addEventListener('load', function(){
+window.addEventListener('click', function(){
   
   let price = document.getElementById("item-price")
   let tax = document.getElementById("add-tax-price")

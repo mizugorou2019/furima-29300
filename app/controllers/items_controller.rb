@@ -31,7 +31,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item.update(item_params)
+    if @item.update(item_params)
+      render 'show'
+    else
+      render 'edit'
+    end
   end
 
   def destroy
