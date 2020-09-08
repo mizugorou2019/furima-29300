@@ -24,7 +24,7 @@
 | category_id        | integer | null: false                    |
 | condition_id       | integer | null: false                    |
 | postage_payer_id   | integer | null: false                    |
-| shipping_origin_id | integer | null: false                    |
+| prefecture_id      | integer | null: false                    |
 | preparation_day_id | integer | null: false                    |
 | user_id            | integer | null: false, foreign_key: true |
 
