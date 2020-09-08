@@ -4,10 +4,10 @@ class PurchaseDelivery
 
   validates :token, :city, :house_number, presence: true
 
-  POST_CODE_REGEX = validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'is invalid. Hyphen is necessary.' }
+  with_options presence: true do 
 
-  with_options presence: true do    
-    POST_CODE_REGEX 
+    POST_CODE_REGEX = /\A\d{3}[-]\d{4}\z/
+    validates :post_code, format: { with: POST_CODE_REGEX, message: 'is invalid. Hyphen is necessary.' }
 
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank." }
 
