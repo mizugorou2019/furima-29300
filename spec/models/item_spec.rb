@@ -63,8 +63,8 @@ describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage payer can't be blank")
       end
-      it 'prefectureが空では出品できない' do
-        @item.prefecture_id = 0
+      it 'shipping_originが空では出品できない' do
+        @item.shipping_origin_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping origin can't be blank")
       end

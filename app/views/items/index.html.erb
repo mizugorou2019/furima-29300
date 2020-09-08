@@ -137,11 +137,14 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <% if item.purchase%>
-            <div class='sold-out'>
-            <span>Sold Out!!</span>
-            </div>
-          <% end %>
+          <%# 購入機能を実装しないとエラーになる %>
+          <%# 購入機能実装に入ったらコメントアウト外す %>
+
+          <%# <% if item.purchase%>
+          <%# <div class='sold-out'> %>
+            <%# <span>Sold Out!!</span> %>
+          <%# </div> %>
+          <%# <% end %>
 
         </div>
         <div class='item-info'>

@@ -10,11 +10,15 @@
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
 
-        <% if @item.purchase%>
-          <div class='sold-out'>
-            <span>Sold Out!!</span> 
-          </div>
-         <% end %>
+
+          <%# 購入機能を実装しないとエラーになる %>
+          <%# 購入機能実装に入ったらコメントアウト外す %>
+
+          <%# <% if item.purchase%>
+          <%# <div class='sold-out'> %>
+            <%# <span>Sold Out!!</span> %>
+          <%# </div> %>
+          <%# <% end %>
 
     </div>
     <div class="item-price-box">
@@ -27,13 +31,11 @@
     </div>
       <% if user_signed_in? && current_user.id == @item.user_id %>
           <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
-          <p class='or-text'>or</p>
+            <p class='or-text'>or</p>
           <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
           <% elsif user_signed_in? && current_user.id != @item.user_id %>
-          <%= link_to '購入画面に進む', item_purchases_path(@item.id), method: :get, class:"item-red-btn" %>
-          <% else %>
-          <%= link_to '購入画面に進む', new_user_session_path, method: :get, class: "item-red-btn" %>
-     <% end %>
+          <%= link_to '購入画面に進む', "#" ,class:"item-red-btn" %>
+            <% end %>
 
     <div class="item-explain-box">
       <span><%= @item.description %></span>
@@ -58,7 +60,7 @@
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.prefecture.name %></td>
+          <td class="detail-value"><%= @item.shipping_origin.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
