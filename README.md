@@ -14,8 +14,7 @@
 - has_many :items
 - has_many :purchases
 
- 
- 
+
 ## Items テーブル
 | Column             | Type    | Options                        |
 | ------------------ | ------- | ------------------------------ |
@@ -32,6 +31,7 @@
 ### Association
 - belongs to :user
 - has_one :purchase
+
 
 
 ## Purchases テーブル
