@@ -33,7 +33,6 @@
 - has_one :purchase
 
 
-
 ## Purchases テーブル
 | Column          | Type    | Options                        |
 | --------------- | ------- | ------------------------------ |
